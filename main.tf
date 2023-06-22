@@ -34,7 +34,6 @@ resource "aws_db_subnet_group" "this" {
 }
 
 resource "aws_rds_cluster" "this" {
-  global_cluster_identifier           = var.global_cluster_identifier
   cluster_identifier                  = local.cluster_identifier
   replication_source_identifier       = var.replication_source_identifier
   source_region                       = var.source_region
