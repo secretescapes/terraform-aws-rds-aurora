@@ -92,7 +92,7 @@ resource "aws_rds_cluster_instance" "this" {
   cluster_identifier              = aws_rds_cluster.this.id
   engine                          = var.engine
   engine_version                  = var.engine_version
-  instance_class                  = var.instance_type_replica != null ? var.instance_type_replica : var.instance_type
+  instance_class                  = var.instance_type_replica != null && count.index == 1 ? var.instance_type_replica : var.instance_type
   publicly_accessible             = var.publicly_accessible
   db_subnet_group_name            = local.db_subnet_group_name
   db_parameter_group_name         = var.db_parameter_group_name
